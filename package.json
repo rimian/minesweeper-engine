@@ -1,0 +1,10 @@
+{
+  "name": "minesweeper",
+  "version": "0.0.0",
+  "description": "A simple minesweeper engine",
+  "main": "index.js",
+  "repository": "git@github.com:rimian/minesweeper.git",
+  "author": "Rimian Perkins <hello@rimian.com.au>",
+  "license": "MIT",
+  "private": false
+}
