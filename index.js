@@ -1,5 +1,5 @@
 
-game = {
+var game = {
   rows: 10,
   cols: 10,
 
