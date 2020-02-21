@@ -9,6 +9,7 @@ game = {
     createRow = () => Array(this.cols).fill(0);
     this.state = Array(this.rows).fill(createRow());
     this.render();
+    return true;
   },
 
   render() {
@@ -17,7 +18,7 @@ game = {
 };
 
 start = () => {
-  game.start();
+  return game.start();
 }
 
 move = (x, y) => {
