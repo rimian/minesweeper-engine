@@ -20,4 +20,16 @@ describe('Tile', () => {
     tile = new Tile(true)
     expect(tile.explosive).toEqual(true)
   })
+
+  test('it clear', () => {
+    tile = new Tile()
+    tile.press();
+    expect(tile.state).toEqual('cleared')
+  })
+
+  test('it exploded', () => {
+    tile = new Tile(true)
+    tile.press();
+    expect(tile.state).toEqual('exploded')
+  })
 })
