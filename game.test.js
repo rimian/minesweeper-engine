@@ -6,8 +6,8 @@ describe('Game', () => {
     game = new Game()
   })
 
-  test('is not running', () => {
-    expect(game.running).toEqual(false)
+  test('has no status before it is started', () => {
+    expect(game.status).toBeUndefined()
   })
 
   test('has rows', () => {
@@ -28,7 +28,7 @@ describe('Game', () => {
 
   test('it is running after it starts', () => {
     game.start()
-    expect(game.running).toEqual(true)
+    expect(game.status).toEqual('running')
   })
 
   test('it has a grid', () => {
