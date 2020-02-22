@@ -15,7 +15,7 @@ class Game {
     return this.running = true
   }
 
-  clear (x, y) {
+  clear (/* x, y */) {
     return true
   }
 }

@@ -2,10 +2,14 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "jest/globals": true
     },
+    "plugins": ["jest"],
     "extends": [
-        "standard"
+        "eslint:recommended",
+        "plugin:jest/recommended",
+        "plugin:jest/style"
     ],
     "globals": {
         "Atomics": "readonly",
