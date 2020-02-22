@@ -1,6 +1,7 @@
 
 class Tile {
-  constructor() {
+  constructor(explosive) {
+    this.explosive = !!explosive;
     this.hidden = true;
   }
 }
