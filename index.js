@@ -16,8 +16,4 @@ clear = (x, y) => {
 
 p = () => console.table(game.board)
 
-var StateMachine = require('javascript-state-machine');
-
-var Nut = StateMachine;
-
 /* eslint-enable no-undef */
