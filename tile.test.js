@@ -21,7 +21,7 @@ describe('Tile', () => {
     expect(tile.explosive).toEqual(true)
   })
 
-  test('it clear', () => {
+  test('it clears', () => {
     tile = new Tile()
     tile.press();
     expect(tile.state).toEqual('cleared')
@@ -38,7 +38,7 @@ describe('Tile', () => {
     expect(tile.value()).toEqual('-')
   })
 
-  test('hidden tile with mine has a value', () => {
+  test('hidden tile without mine has a value', () => {
     tile = new Tile()
     expect(tile.value()).toEqual('-')
   })

@@ -8,6 +8,10 @@ class Game {
     this.tiles = []
   }
 
+  tile(x, y) {
+    return this.tiles[x * this.rows + y]
+  }
+
   board() {
     return arrayChunk(this.tiles.map(t => t.value()), this.cols)
   }

@@ -42,6 +42,18 @@ describe('Game', () => {
     expect(board[0][0]).toEqual('-')
   })
 
+  test('it has a tile', () => {
+    game.start()
+    // Map them to index so we can check them
+    game.tiles = game.tiles.map((t, i) => i)
+    expect(game.tile(0, 0)).toEqual(0)
+    expect(game.tile(0, 3)).toEqual(3)
+    expect(game.tile(1, 0)).toEqual(10)
+    expect(game.tile(1, 2)).toEqual(12)
+    expect(game.tile(3, 2)).toEqual(32)
+    expect(game.tile(9, 9)).toEqual(99)
+  })
+
   test('clears', () => {
     game.start()
     expect(game.clear(1, 1)).toBeTruthy()
