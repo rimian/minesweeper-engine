@@ -1,4 +1,5 @@
 const Game = require('./game')
+const Tile = require('./tile')
 let game
 
 describe('Game', () => {
@@ -18,10 +19,6 @@ describe('Game', () => {
     expect(game.cols).toEqual(10)
   })
 
-  test('it has an empty board', () => {
-    expect(game.board).toEqual([])
-  })
-
   test('it has an empty tile list', () => {
     expect(game.tiles).toEqual([])
   })
@@ -31,10 +28,18 @@ describe('Game', () => {
     expect(game.status).toEqual('running')
   })
 
-  test('it has a grid', () => {
+  test('it tiles', () => {
     game.start()
-    expect(game.board).toHaveLength(10)
-    expect(game.board[0]).toHaveLength(10)
+    expect(game.tiles).toHaveLength(100)
+    expect(game.tiles[0]).toBeInstanceOf(Tile)
+  })
+
+  test('it has a board', () => {
+    game.start()
+    const board = game.board();
+    expect(board).toHaveLength(10)
+    expect(board[0]).toHaveLength(10)
+    expect(board[0][0]).toEqual('-')
   })
 
   test('clears', () => {
