@@ -33,8 +33,8 @@ describe('Game', () => {
 
   test('it has a grid', () => {
     game.start()
-    expect(game.board.length).toEqual(10)
-    expect(game.board[0].length).toEqual(10)
+    expect(game.board).toHaveLength(10)
+    expect(game.board[0]).toHaveLength(10)
   })
 
   test('clears', () => {
