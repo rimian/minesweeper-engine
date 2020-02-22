@@ -8,7 +8,7 @@ describe('Tile', () => {
   })
 
   test('it is hidden', () => {
-    expect(tile.hidden).toEqual(true)
+    expect(tile.state).toEqual('hidden')
   })
 
   test('it is not explosive', () => {
@@ -20,6 +20,4 @@ describe('Tile', () => {
     tile = new Tile(true)
     expect(tile.explosive).toEqual(true)
   })
-
-  describe('', () => {})
 })
