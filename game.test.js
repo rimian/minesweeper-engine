@@ -18,20 +18,27 @@ describe('Game', () => {
     expect(game.cols).toEqual(10);
   });
 
-  test('has an empty board', () => {
+  test('it has an empty board', () => {
     expect(game.board).toEqual([]);
   });
 
-  test('starts', () => {
+  test('it has an empty tile list', () => {
+    expect(game.tiles).toEqual([]);
+  });
+
+  test('it is running after it starts', () => {
     game.start();
     expect(game.running).toEqual(true);
   });
 
-  describe('The board', () => {
-    test('starts', () => {
-      game.start();
-      expect(game.board.length).toEqual(10);
-      expect(game.board[0].length).toEqual(10);
-    });
+  test('it has a grid', () => {
+    game.start();
+    expect(game.board.length).toEqual(10);
+    expect(game.board[0].length).toEqual(10);
+  });
+
+  test('clears', () => {
+    game.start();
+    expect(game.clear(1, 1)).toBeTruthy();
   });
 });

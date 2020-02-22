@@ -12,5 +12,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "array-chunk": "^1.0.0"
   }
 }
