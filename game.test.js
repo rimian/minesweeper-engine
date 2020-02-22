@@ -56,6 +56,7 @@ describe('Game', () => {
 
   test('clears', () => {
     game.start()
-    expect(game.clear(1, 1)).toBeTruthy()
+    game.clear(0, 0)
+    expect(game.tiles[0].value()).toEqual('0')
   })
 })

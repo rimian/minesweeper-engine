@@ -21,8 +21,8 @@ class Game {
     return this.status = 'running'
   }
 
-  clear (/* x, y */) {
-    return true
+  clear (x, y) {
+    return this.tile(x, y).press()
   }
 }
 
