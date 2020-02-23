@@ -1,17 +1,21 @@
 # Minesweeper
 
-A mine sweeper engine
+A Minesweeper engine.
 
 ## Run in console
 
 Load
 ```
 node
-.load index.js
+> print = true
+> .load index.js
 ```
 
 Start
 `start()`
+
+Clear a tile
+`clear(x, y)`
 
 ## Testing
 
