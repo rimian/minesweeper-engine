@@ -1,22 +1,27 @@
 const Game = require('./game')
 
 const game = new Game()
-let print = false;
 
 /* eslint-disable no-undef */
 
-p = () => print ? console.table(game.board()) : null
+print = () => {
+  console.table(game.board())
+}
 
 start = () => {
   game.start()
-  p()
+  print()
   return true
 }
 
 expose = (x, y) => {
   game.expose(x, y)
-  p()
+  print()
   return true;
 }
+
+p = () => { return print() }
+s = () => { return start() }
+e = (x, y) => { return expose(x, y) }
 
 /* eslint-enable no-undef */

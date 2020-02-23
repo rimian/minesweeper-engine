@@ -10,7 +10,7 @@ class Game {
   }
 
   tile(x, y) {
-    return this.tiles[x * this.rows + y]
+    return this.tiles[y * this.rows + x]
   }
 
   board() {

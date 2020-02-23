@@ -1,21 +1,34 @@
 
 class Tile {
-  constructor (armed) {
-    this.armed = !!armed
+  constructor () {
     this.state = 'hidden'
-    this.values = { detonated: 'X', cleared: '0', hidden: '-' }
+    this.hidden = true
+    this.values = { detonated: 'X', cleared: '0' }
+  }
+
+  arm() {
+    this.state = 'armed'
+  }
+
+  press() {
+    this.hidden = false;
+    this.state = this.armed() ? 'detonated' : 'cleared'
+  }
+
+  armed() {
+    return this.state == 'armed'
+  }
+
+  detonated() {
+    return this.state == 'detonated'
   }
 
   cleared() {
     return this.state == 'cleared'
   }
 
-  press() {
-    this.state = this.armed ? 'detonated' : 'cleared'
-  }
-
   value() {
-    return this.values[this.state]
+    return this.hidden ? '-' : this.values[this.state]
   }
 }
 

@@ -4,21 +4,20 @@ A Minesweeper engine.
 
 ## Run in console
 
-Load
+Load into console
 ```
 node
-> print = true
-> .load index.js
+> .load cli.js
 ```
 
-Start
+Start the game
 ```
 start()
 ```
 
-Clear a tile
+Expose a tile
 ```
-clear(x, y)
+expose(x, y)
 ```
 
 ## Testing
