@@ -55,6 +55,13 @@ describe('Game', () => {
     expect(game.tile(9, 9)).toEqual(99)
   })
 
+  test('ends the game', () => {
+    game.random = () => [0]
+    game.start()
+    game.expose(0, 0)
+    expect(game.state).toEqual('game-over')
+  })
+
   describe('playing the game', () => {
     beforeEach(() => {
       // hide armed tiles

@@ -44,6 +44,10 @@ class Game {
   }
 
   expose(x, y) {
+    if(this.tile(x, y).armed()) {
+      return this.state = 'game-over'
+    }
+
     this.tile(x, y).press()
     this.tile(x, y + 1).press()
     this.tile(x + 1, y).press()
