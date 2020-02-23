@@ -36,6 +36,12 @@ describe('Game', () => {
     expect(game.tiles[0]).toBeInstanceOf(Tile)
   })
 
+  test('it clears old tiles', () => {
+    game.start()
+    game.start()
+    expect(game.tiles).toHaveLength(100)
+  })
+
   test('it has a board', () => {
     game.start()
     const board = game.board();

@@ -32,6 +32,8 @@ class Game {
   }
 
   start () {
+    this.tiles = []
+
     for(let i = this.area; i--;){
       this.tiles.push(new Tile)
     }
