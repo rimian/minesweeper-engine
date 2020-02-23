@@ -44,14 +44,13 @@ describe('Game', () => {
 
   test('it has a tile', () => {
     game.start()
-    // Map them to index so we can check them
-    game.tiles = game.tiles.map((t, i) => i)
-    expect(game.tile(0, 0)).toEqual(0)
-    expect(game.tile(0, 3)).toEqual(3)
-    expect(game.tile(1, 0)).toEqual(10)
-    expect(game.tile(1, 2)).toEqual(12)
-    expect(game.tile(3, 2)).toEqual(32)
-    expect(game.tile(9, 9)).toEqual(99)
+    const tiles = game.tiles;
+    expect(game.tile(0, 0)).toEqual(tiles[0])
+    expect(game.tile(0, 3)).toEqual(tiles[3])
+    expect(game.tile(1, 0)).toEqual(tiles[10])
+    expect(game.tile(1, 2)).toEqual(tiles[12])
+    expect(game.tile(3, 2)).toEqual(tiles[32])
+    expect(game.tile(9, 9)).toEqual(tiles[99])
   })
 
   test('clears', () => {

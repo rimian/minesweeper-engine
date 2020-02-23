@@ -5,19 +5,18 @@ let print = false;
 
 /* eslint-disable no-undef */
 
-start = (p) => {
-  print = !!p
+p = () => print ? console.table(game.board()) : null
+
+start = () => {
   game.start()
-  if (print) { p() }
+  p()
   return true
 }
 
 clear = (x, y) => {
   game.clear(x, y)
-  if (print) { p() }
+  p()
   return true;
 }
-
-p = () => console.table(game.board())
 
 /* eslint-enable no-undef */
