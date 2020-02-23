@@ -25,7 +25,7 @@ describe('Game', () => {
 
   test('it is running after it starts', () => {
     game.start()
-    expect(game.status).toEqual('running')
+    expect(game.state).toEqual('running')
   })
 
   test('it loads tiles', () => {

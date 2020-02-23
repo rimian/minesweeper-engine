@@ -6,18 +6,17 @@ const game = new Game()
 
 _print = () => {
   console.table(game.board())
+  return game.state;
 }
 
 start = () => {
   game.start()
-  _print()
-  return true
+  return _print()
 }
 
 expose = (x, y) => {
   game.expose(x, y)
-  _print()
-  return true;
+  return _print()
 }
 
 s = () => { return start() }

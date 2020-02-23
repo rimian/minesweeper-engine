@@ -27,7 +27,7 @@ class Game {
       this.tiles.push(new Tile)
     }
 
-    return this.status = 'running'
+    return this.state = 'running'
   }
 
   expose(x, y) {
@@ -35,6 +35,8 @@ class Game {
     this.tile(x, y + 1).press()
     this.tile(x + 1, y).press()
     this.tile(x + 1, y + 1).press()
+
+    return true;
   }
 }
 
