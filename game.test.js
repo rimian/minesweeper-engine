@@ -69,6 +69,12 @@ describe('Game', () => {
       game.start()
     })
 
+    test('will not expose tile when the game is over', () => {
+      game.state = 'game-over'
+      game.expose(0, 0)
+      expect(game.tiles[0].cleared()).toEqual(false)
+    });
+
     test('exposes', () => {
       game.expose(0, 0)
       expect(game.tiles[0].cleared()).toEqual(true)

@@ -44,6 +44,10 @@ class Game {
   }
 
   expose(x, y) {
+    if(this.state == 'game-over') {
+      return this.state
+    }
+
     this.tile(x, y).press()
 
     if(this.tile(x, y).detonated()) {
