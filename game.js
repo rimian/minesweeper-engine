@@ -36,6 +36,10 @@ class Game {
       this.tiles.push(new Tile)
     }
 
+    this.random().forEach((i) => {
+      this.tiles[i].arm()
+    })
+
     return this.state = 'running'
   }
 

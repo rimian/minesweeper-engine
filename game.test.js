@@ -55,23 +55,24 @@ describe('Game', () => {
     expect(game.tile(9, 9)).toEqual(99)
   })
 
-  test('exposes', () => {
-    game.start()
+  describe('playing the game', () => {
+    beforeEach(() => {
+      // hide armed tiles
+      game.random = () => []
+      game.start()
+    })
 
-    game.expose(0, 0)
-    expect(game.tiles[0].cleared()).toEqual(true)
-    expect(game.board()[0][0]).toEqual('0')
+    test('exposes', () => {
+      game.expose(0, 0)
+      expect(game.tiles[0].cleared()).toEqual(true)
+      expect(game.board()[0][0]).toEqual('0')
 
-    game.expose(0, 1)
-    expect(game.tiles[10].cleared()).toEqual(true)
-    expect(game.board()[1][0]).toEqual('0')
-  })
-
-  describe('clear closest', () => {
-    beforeEach(() => game.start());
+      game.expose(0, 1)
+      expect(game.tiles[10].cleared()).toEqual(true)
+      expect(game.board()[1][0]).toEqual('0')
+    })
 
     test('clears the nearby tiles', () => {
-      game.start()
       game.expose(0, 0)
       expect(game.tiles[1].cleared()).toEqual(true)
       expect(game.tiles[10].cleared()).toEqual(true)
