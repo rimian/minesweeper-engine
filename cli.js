@@ -4,23 +4,22 @@ const game = new Game()
 
 /* eslint-disable no-undef */
 
-print = () => {
+_print = () => {
   console.table(game.board())
 }
 
 start = () => {
   game.start()
-  print()
+  _print()
   return true
 }
 
 expose = (x, y) => {
   game.expose(x, y)
-  print()
+  _print()
   return true;
 }
 
-p = () => { return print() }
 s = () => { return start() }
 e = (x, y) => { return expose(x, y) }
 

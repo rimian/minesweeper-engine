@@ -9,12 +9,17 @@ class Game {
     this.tiles = []
   }
 
+  chunk(arr) {
+    return arrayChunk(arr, this.cols)
+  }
+
   tile(x, y) {
-    return this.tiles[y * this.rows + x]
+    const tiles = this.chunk(this.tiles)
+    return tiles[y][x]
   }
 
   board() {
-    return arrayChunk(this.tiles.map(t => t.value()), this.cols)
+    return this.chunk(this.tiles.map(t => t.value()))
   }
 
   start () {
@@ -25,7 +30,7 @@ class Game {
     return this.status = 'running'
   }
 
-  expose (x, y) {
+  expose(x, y) {
     this.tile(x, y).press()
     this.tile(x, y + 1).press()
     this.tile(x + 1, y).press()
