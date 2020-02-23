@@ -42,24 +42,27 @@ describe('Game', () => {
     expect(board[0][0]).toEqual('-')
   })
 
-  test('it gets a tile', () => {
+  test('it gets a tile by x and y coordinates', () => {
     game.start()
-    const tiles = game.tiles;
-    expect(game.tile(0, 0)).toEqual(tiles[0])
-    expect(game.tile(1, 0)).toEqual(tiles[12])
-    // expect(game.tile(1, 2)).toEqual(tiles[12])
-    // expect(game.tile(3, 2)).toEqual(tiles[32])
-    // expect(game.tile(9, 9)).toEqual(tiles[99])
+    // map integers so they can be tested
+    game.tiles = game.tiles.map((t, i) => i);
+    expect(game.tile(0, 0)).toEqual(0)
+    expect(game.tile(1, 0)).toEqual(1)
+    expect(game.tile(1, 2)).toEqual(21)
+    expect(game.tile(3, 2)).toEqual(23)
+    expect(game.tile(9, 9)).toEqual(99)
   })
 
   test('exposes', () => {
     game.start()
+
     game.expose(0, 0)
     expect(game.tiles[0].cleared()).toEqual(true)
     expect(game.board()[0][0]).toEqual('0')
-    game.expose(1, 0)
+
+    game.expose(0, 1)
     expect(game.tiles[10].cleared()).toEqual(true)
-    expect(game.board()[0][1]).toEqual('0')
+    expect(game.board()[1][0]).toEqual('0')
   })
 
   describe('clear closest', () => {
