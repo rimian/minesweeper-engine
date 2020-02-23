@@ -11,16 +11,18 @@ describe('Game', () => {
     expect(game.status).toBeUndefined()
   })
 
-  test('has rows', () => {
-    expect(game.rows).toEqual(10)
-  })
-
-  test('has columns', () => {
-    expect(game.cols).toEqual(10)
+  test('has settings', () => {
+    expect(game.settings.rows).toEqual(10)
+    expect(game.settings.cols).toEqual(10)
+    expect(game.settings.mines).toEqual(10)
   })
 
   test('it has an empty tile list', () => {
     expect(game.tiles).toEqual([])
+  })
+
+  test('has random ids', () => {
+    expect(game.random()).toHaveLength(10)
   })
 
   test('it is running after it starts', () => {

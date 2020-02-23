@@ -23,6 +23,7 @@
     "lint": "npx eslint ."
   },
   "dependencies": {
-    "array-chunk": "^1.0.0"
+    "array-chunk": "^1.0.0",
+    "shuffle-array": "^1.0.1"
   }
 }

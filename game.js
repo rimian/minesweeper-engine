@@ -1,16 +1,25 @@
 const arrayChunk = require('array-chunk')
+const shuffle = require('shuffle-array')
 const Tile = require('./tile')
 
 class Game {
   constructor () {
-    this.rows = 10
-    this.cols = 10
-    this.area = this.rows * this.cols
+    this.settings = {
+      rows: 10,
+      cols: 10,
+      mines: 10
+    }
+    this.area = this.settings.rows * this.settings.cols
     this.tiles = []
   }
 
   chunk(arr) {
-    return arrayChunk(arr, this.cols)
+    return arrayChunk(arr, this.settings.cols)
+  }
+
+  random() {
+    const ids = Array(this.area).fill().map((_x, i) => i)
+    return shuffle(ids).slice(0, this.settings.mines)
   }
 
   tile(x, y) {
