@@ -7,6 +7,10 @@ describe('Game', () => {
     game = new Game()
   })
 
+  test('check travis fails', () => {
+    expect(false).toEqual(true)
+  })
+
   test('has no status before it is started', () => {
     expect(game.status).toBeUndefined()
   })
