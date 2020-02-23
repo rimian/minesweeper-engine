@@ -25,8 +25,11 @@ class Game {
     return this.status = 'running'
   }
 
-  clear (x, y) {
-    return this.tile(x, y).press()
+  expose (x, y) {
+    this.tile(x, y).press()
+    this.tile(x, y + 1).press()
+    this.tile(x + 1, y).press()
+    this.tile(x + 1, y + 1).press()
   }
 }
 

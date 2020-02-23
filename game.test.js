@@ -53,9 +53,21 @@ describe('Game', () => {
     expect(game.tile(9, 9)).toEqual(tiles[99])
   })
 
-  test('clears', () => {
+  test('exposes', () => {
     game.start()
-    game.clear(0, 0)
-    expect(game.tiles[0].value()).toEqual('0')
+    game.expose(0, 0)
+    expect(game.tiles[0].cleared()).toEqual(true)
+  })
+
+  describe('clear closest', () => {
+    beforeEach(() => game.start());
+
+    test('clears the nearby tiles', () => {
+      game.start()
+      game.expose(0, 0)
+      expect(game.tiles[1].cleared()).toEqual(true)
+      expect(game.tiles[10].cleared()).toEqual(true)
+      expect(game.tiles[11].cleared()).toEqual(true)
+    })
   })
 })

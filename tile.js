@@ -1,13 +1,17 @@
 
 class Tile {
-  constructor (explosive) {
-    this.explosive = !!explosive
+  constructor (armed) {
+    this.armed = !!armed
     this.state = 'hidden'
-    this.values = { exploded: 'X', cleared: '0', hidden: '-' }
+    this.values = { detonated: 'X', cleared: '0', hidden: '-' }
+  }
+
+  cleared() {
+    return this.state == 'cleared'
   }
 
   press() {
-    this.state = this.explosive ? 'exploded' : 'cleared'
+    this.state = this.armed ? 'detonated' : 'cleared'
   }
 
   value() {

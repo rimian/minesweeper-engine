@@ -11,26 +11,26 @@ describe('Tile', () => {
     expect(tile.state).toEqual('hidden')
   })
 
-  test('it is not explosive', () => {
+  test('it is not armed', () => {
     tile = new Tile()
-    expect(tile.explosive).toEqual(false)
+    expect(tile.armed).toEqual(false)
   })
 
-  test('it is explosive', () => {
+  test('it is armed', () => {
     tile = new Tile(true)
-    expect(tile.explosive).toEqual(true)
+    expect(tile.armed).toEqual(true)
   })
 
-  test('it clears', () => {
+  test('it is cleared', () => {
     tile = new Tile()
     tile.press();
-    expect(tile.state).toEqual('cleared')
+    expect(tile.cleared()).toEqual(true)
   })
 
-  test('it exploded', () => {
+  test('it detonated', () => {
     tile = new Tile(true)
     tile.press();
-    expect(tile.state).toEqual('exploded')
+    expect(tile.state).toEqual('detonated')
   })
 
   test('hidden tile with mine has a value', () => {

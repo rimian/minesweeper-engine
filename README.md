@@ -12,10 +12,14 @@ node
 ```
 
 Start
-`start()`
+```
+start()
+```
 
 Clear a tile
-`clear(x, y)`
+```
+clear(x, y)
+```
 
 ## Testing
 

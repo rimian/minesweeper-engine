@@ -13,8 +13,8 @@ start = () => {
   return true
 }
 
-clear = (x, y) => {
-  game.clear(x, y)
+expose = (x, y) => {
+  game.expose(x, y)
   p()
   return true;
 }
