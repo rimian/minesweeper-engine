@@ -18,9 +18,8 @@ class Game {
   }
 
   random() {
-    return [0]
-    // const ids = Array(this.area).fill().map((_x, i) => i)
-    // return shuffle(ids).slice(0, this.settings.mines)
+    const ids = Array(this.area).fill().map((_x, i) => i)
+    return shuffle(ids).slice(0, this.settings.mines)
   }
 
   tile(x, y) {
