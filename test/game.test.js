@@ -63,7 +63,7 @@ describe('Game', () => {
   test('ends the game', () => {
     game.random = () => [0]
     game.start()
-    game.expose(0, 0)
+    game.clear(0, 0)
     expect(game.state).toEqual('game-over')
   })
 
@@ -76,7 +76,7 @@ describe('Game', () => {
 
     test('will not expose tile when the game is over', () => {
       game.state = 'game-over'
-      game.expose(0, 0)
+      game.clear(0, 0)
       expect(game.tiles[0].cleared()).toEqual(false)
     });
 
@@ -86,18 +86,18 @@ describe('Game', () => {
       expect(game.tiles[0].flagged()).toEqual(false)
     });
 
-    test('flags', () => {
+    test('flags the tile', () => {
       game.flag(0, 0)
       expect(game.tiles[0].flagged()).toEqual(true)
       game.flag(0, 1)
       expect(game.tiles[10].flagged()).toEqual(true)
     })
 
-    test('exposes', () => {
-      game.expose(0, 0)
+    test('clears the tile', () => {
+      game.clear(0, 0)
       expect(game.tiles[0].cleared()).toEqual(true)
 
-      game.expose(0, 1)
+      game.clear(0, 1)
       expect(game.tiles[10].cleared()).toEqual(true)
     })
   })

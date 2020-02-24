@@ -16,8 +16,8 @@ start = () => {
   return _print()
 }
 
-expose = (x, y) => {
-  game.expose(x, y)
+clear = (x, y) => {
+  game.clear(x, y)
   return _print()
 }
 
@@ -27,7 +27,7 @@ flag = (x, y) => {
 }
 
 s = () => { return start() }
-e = (x, y) => { return expose(x, y) }
+c = (x, y) => { return clear(x, y) }
 f = (x, y) => { return flag(x, y) }
 
 /* eslint-enable no-undef */

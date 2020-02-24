@@ -18,7 +18,7 @@ class Tile {
     return this.state == 'flagged'
   }
 
-  press() {
+  clear() {
     this.hidden = false
     this.state = this.armed ? 'detonated' : 'cleared'
   }

@@ -24,15 +24,15 @@ describe('Tile', () => {
     expect(tile.hidden).toEqual(true)
   })
 
-  test('it is cleared when pressed', () => {
-    tile.press();
+  test('it is cleared', () => {
+    tile.clear();
     expect(tile.hidden).toEqual(false)
     expect(tile.cleared()).toEqual(true)
   })
 
   test('it is detonated', () => {
     tile.arm()
-    tile.press();
+    tile.clear();
     expect(tile.hidden).toEqual(false)
     expect(tile.detonated()).toEqual(true)
   })
