@@ -1,4 +1,4 @@
-const Tile = require('./tile')
+const Tile = require('../tile')
 
 let tile
 

@@ -1,5 +1,5 @@
-const Game = require('./game')
-const Tile = require('./tile')
+const Game = require('../game')
+const Tile = require('../tile')
 let game
 
 describe('Game', () => {
@@ -89,13 +89,6 @@ describe('Game', () => {
       game.expose(0, 1)
       expect(game.tiles[10].cleared()).toEqual(true)
       expect(game.board()[1][0]).toEqual('0')
-    })
-
-    test('clears the nearby tiles', () => {
-      game.expose(0, 0)
-      expect(game.tiles[1].cleared()).toEqual(true)
-      expect(game.tiles[10].cleared()).toEqual(true)
-      expect(game.tiles[11].cleared()).toEqual(true)
     })
   })
 })

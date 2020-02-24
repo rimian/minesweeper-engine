@@ -56,10 +56,6 @@ class Game {
       return this.state = 'game-over'
     }
 
-    this.tile(x, y + 1).press()
-    this.tile(x + 1, y).press()
-    this.tile(x + 1, y + 1).press()
-
     return true;
   }
 }
