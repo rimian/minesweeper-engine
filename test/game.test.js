@@ -1,5 +1,5 @@
-const Game = require('../game')
-const Tile = require('../tile')
+const Game = require('../src/game')
+const Tile = require('../src/tile')
 let game
 
 describe('Game', () => {
