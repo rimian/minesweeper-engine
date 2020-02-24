@@ -47,7 +47,6 @@ describe('Game', () => {
     const board = game.board();
     expect(board).toHaveLength(10)
     expect(board[0]).toHaveLength(10)
-    expect(board[0][0]).toEqual('-')
   })
 
   test('it gets a tile by x and y coordinates', () => {
@@ -97,11 +96,9 @@ describe('Game', () => {
     test('exposes', () => {
       game.expose(0, 0)
       expect(game.tiles[0].cleared()).toEqual(true)
-      expect(game.board()[0][0]).toEqual('0')
 
       game.expose(0, 1)
       expect(game.tiles[10].cleared()).toEqual(true)
-      expect(game.board()[1][0]).toEqual('0')
     })
   })
 })

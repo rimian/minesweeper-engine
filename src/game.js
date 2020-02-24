@@ -28,7 +28,7 @@ class Game {
   }
 
   board() {
-    return this.chunk(this.tiles.map(t => t.value()))
+    return this.chunk(this.tiles)
   }
 
   start () {

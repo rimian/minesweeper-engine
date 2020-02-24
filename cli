@@ -1,11 +1,13 @@
 const Game = require('./src/game')
+const Logger = require('./src/logger')
 
 const game = new Game()
+const logger = new Logger(game)
 
 /* eslint-disable no-undef */
 
 _print = () => {
-  console.table(game.board())
+  logger.table()
   return game.state;
 }
 
