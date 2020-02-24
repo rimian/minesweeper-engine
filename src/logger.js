@@ -4,7 +4,7 @@ class Logger {
     this.game = game
 
     this.settings = {
-      hidden: ' ',
+      hidden: '.',
       detonated: 'X',
       cleared: '0',
       flagged: '|'
@@ -17,7 +17,6 @@ class Logger {
 
   values() {
     return this.game.board().map(row => {
-      console.log(row);
       return row.map(col => this.value(col))
     })
   }

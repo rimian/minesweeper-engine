@@ -9,13 +9,13 @@ describe('Tile', () => {
 
   test('default state', () => {
     expect(tile.hidden).toEqual(true)
+    expect(tile.armed).toEqual(false)
     expect(tile.flagged()).toEqual(false)
-    expect(tile.armed()).toEqual(false)
   })
 
   test('it is armed', () => {
     tile.arm()
-    expect(tile.armed()).toEqual(true)
+    expect(tile.armed).toEqual(true)
   })
 
   test('it is flagged', () => {
@@ -30,7 +30,7 @@ describe('Tile', () => {
     expect(tile.cleared()).toEqual(true)
   })
 
-  test('it detonated', () => {
+  test('it is detonated', () => {
     tile.arm()
     tile.press();
     expect(tile.hidden).toEqual(false)

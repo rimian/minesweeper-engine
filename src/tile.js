@@ -3,10 +3,11 @@ class Tile {
   constructor () {
     this.state = 'hidden'
     this.hidden = true
+    this.armed = false
   }
 
   arm() {
-    this.state = 'armed'
+    this.armed = true
   }
 
   flag() {
@@ -18,12 +19,8 @@ class Tile {
   }
 
   press() {
-    this.hidden = false;
-    this.state = this.armed() ? 'detonated' : 'cleared'
-  }
-
-  armed() {
-    return this.state == 'armed'
+    this.hidden = false
+    this.state = this.armed ? 'detonated' : 'cleared'
   }
 
   detonated() {

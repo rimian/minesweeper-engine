@@ -10,21 +10,16 @@ describe('Logger', () => {
 
   test('mapping values', () => {
     expect(logger.settings).toEqual({
-      hidden: ' ',
+      hidden: '.',
       cleared: '0',
       detonated: 'X',
       flagged: '|',
     })
   })
 
-  test('default value', () => {
-    const tile = { state: 'hidden' }
-    expect(logger.value(tile)).toEqual(' ')
-  })
-
-  test('cleared value', () => {
-    const tile = { state: 'cleared' }
-    expect(logger.value(tile)).toEqual('0')
+  test('value', () => {
+    logger.settings = { foo: 'bar' }
+    expect(logger.value({ state: 'foo' })).toEqual('bar')
   })
 
   test('get all the values and leaves the original', () => {
