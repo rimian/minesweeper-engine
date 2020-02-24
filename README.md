@@ -9,7 +9,7 @@ A Minesweeper engine.
 Load into console
 ```
 node
-> .load cli.js
+> .load cli
 ```
 
 Start the game
