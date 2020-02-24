@@ -81,6 +81,19 @@ describe('Game', () => {
       expect(game.tiles[0].cleared()).toEqual(false)
     });
 
+    test('will not flag tile when the game is over', () => {
+      game.state = 'game-over'
+      game.flag(0, 0)
+      expect(game.tiles[0].flagged()).toEqual(false)
+    });
+
+    test('flags', () => {
+      game.flag(0, 0)
+      expect(game.tiles[0].flagged()).toEqual(true)
+      game.flag(0, 1)
+      expect(game.tiles[10].flagged()).toEqual(true)
+    })
+
     test('exposes', () => {
       game.expose(0, 0)
       expect(game.tiles[0].cleared()).toEqual(true)

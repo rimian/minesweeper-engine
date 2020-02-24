@@ -40,6 +40,4 @@ describe('Tile', () => {
     expect(tile.detonated()).toEqual(true)
     expect(tile.value()).toEqual('X')
   })
-
-
 })

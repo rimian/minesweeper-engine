@@ -45,6 +45,16 @@ class Game {
     return this.state = 'running'
   }
 
+  flag(x, y) {
+    if(this.state == 'game-over') {
+      return this.state
+    }
+
+    this.tile(x, y).flag()
+
+    return true
+  }
+
   expose(x, y) {
     if(this.state == 'game-over') {
       return this.state

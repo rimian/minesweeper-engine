@@ -19,7 +19,13 @@ expose = (x, y) => {
   return _print()
 }
 
+flag = (x, y) => {
+  game.flag(x, y)
+  return _print()
+}
+
 s = () => { return start() }
 e = (x, y) => { return expose(x, y) }
+f = (x, y) => { return flag(x, y) }
 
 /* eslint-enable no-undef */

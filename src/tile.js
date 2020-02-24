@@ -3,7 +3,7 @@ class Tile {
   constructor () {
     this.state = 'hidden'
     this.hidden = true
-    this.values = { detonated: 'X', cleared: '0' }
+    this.values = { detonated: 'X', cleared: '0', flagged: '|' }
   }
 
   arm() {
@@ -36,7 +36,10 @@ class Tile {
   }
 
   value() {
-    return this.hidden ? '-' : this.values[this.state]
+    if(this.hidden && !this.flagged()) {
+      return '-'
+    }
+    return this.values[this.state]
   }
 }
 
