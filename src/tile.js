@@ -1,35 +1,21 @@
+const StateMachine = require('javascript-state-machine');
 
-class Tile {
-  constructor () {
-    this.state = 'hidden'
-    this.hidden = true
-    this.armed = false
+const Tile = StateMachine.factory({
+  init: 'default',
+  transitions: [
+    { name: 'clear', from: 'default', to() { return this.armed ? 'detonated' : 'cleared' } },
+    { name: 'flag', from: 'default', to: 'flagged' },
+    { name: 'unflag', from: 'flagged', to: 'default' }
+  ],
+  data: {
+    armed: false,
+  },
+  methods: {
+    arm() { this.armed = true },
+    cleared() { return this.state == 'cleared' },
+    detonated() { return this.state == 'detonated' },
+    flagged() { return this.state == 'flagged' }
   }
-
-  arm() {
-    this.armed = true
-  }
-
-  flag() {
-    this.state = 'flagged'
-  }
-
-  flagged() {
-    return this.state == 'flagged'
-  }
-
-  clear() {
-    this.hidden = false
-    this.state = this.armed ? 'detonated' : 'cleared'
-  }
-
-  detonated() {
-    return this.state == 'detonated'
-  }
-
-  cleared() {
-    return this.state == 'cleared'
-  }
-}
+})
 
 module.exports = Tile

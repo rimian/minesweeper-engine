@@ -96,7 +96,6 @@ describe('Game', () => {
     test('clears the tile', () => {
       game.clear(0, 0)
       expect(game.tiles[0].cleared()).toEqual(true)
-
       game.clear(0, 1)
       expect(game.tiles[10].cleared()).toEqual(true)
     })
