@@ -87,15 +87,16 @@ describe('Game', () => {
     });
 
     test('flags the tile', () => {
-      game.flag(0, 0)
-      expect(game.tiles[0].flagged()).toEqual(true)
-      game.flag(0, 1)
-      expect(game.tiles[10].flagged()).toEqual(true)
+      const tile = new Tile
+      tile.flag = jest.fn()
+      game.tile = () => tile
+      game.flag(10, 12)
+      expect(tile.flag).toHaveBeenCalled();
     })
 
     test('clears the tile', () => {
       const tile = new Tile
-      tile.clear = jest.fn();
+      tile.clear = jest.fn()
       game.tile = () => tile
       game.clear(10, 12)
       expect(tile.clear).toHaveBeenCalled();
