@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "array-chunk": "^1.0.0",
+    "moore": "^1.0.0",
     "shuffle-array": "^1.0.1"
   }
 }
