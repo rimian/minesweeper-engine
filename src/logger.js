@@ -4,9 +4,9 @@ class Logger {
     this.game = game
 
     this.settings = {
-      default: '.',
+      default: '#',
       detonated: 'X',
-      cleared: '0',
+      cleared: ' ',
       flagged: '|'
     }
   }

@@ -10,8 +10,8 @@ describe('Logger', () => {
 
   test('mapping values', () => {
     expect(logger.settings).toEqual({
-      default: '.',
-      cleared: '0',
+      default: '#',
+      cleared: ' ',
       detonated: 'X',
       flagged: '|',
     })
@@ -23,9 +23,9 @@ describe('Logger', () => {
   })
 
   test('get all the values and leaves the original', () => {
-    game.board = () => [[{ state: 'cleared' }], [{ state: 'flagged' }]]
+    game.board = () => [[{ state: 'default' }], [{ state: 'flagged' }]]
     const values = logger.values()
-    expect(values.join('')).toEqual('0|')
-    expect(game.board()).toEqual([[{ state: 'cleared' }], [{ state: 'flagged' }]])
+    expect(values.join('')).toEqual('#|')
+    expect(game.board()).toEqual([[{ state: 'default' }], [{ state: 'flagged' }]])
   })
 });
