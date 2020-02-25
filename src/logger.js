@@ -4,7 +4,7 @@ class Logger {
     this.game = game
 
     this.settings = {
-      hidden: '.',
+      default: '.',
       detonated: 'X',
       cleared: '0',
       flagged: '|'

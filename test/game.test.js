@@ -69,7 +69,6 @@ describe('Game', () => {
   })
 
   describe('playing the game', () => {
-
     beforeEach(() => {
       // hide armed tiles
       game.random = () => []

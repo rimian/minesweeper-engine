@@ -10,7 +10,7 @@ describe('Logger', () => {
 
   test('mapping values', () => {
     expect(logger.settings).toEqual({
-      hidden: '.',
+      default: '.',
       cleared: '0',
       detonated: 'X',
       flagged: '|',
