@@ -1,6 +1,7 @@
 const Game = require('../src/game')
 const Tile = require('../src/tile')
 let game
+let tile
 
 describe('Game', () => {
   beforeEach(() => {
@@ -68,38 +69,38 @@ describe('Game', () => {
   })
 
   describe('playing the game', () => {
+
     beforeEach(() => {
       // hide armed tiles
       game.random = () => []
       game.start()
+
+      tile = new Tile;
+      tile.flag = jest.fn()
+      tile.clear = jest.fn()
+      game.tile = () => tile
     })
 
     test('will not expose tile when the game is over', () => {
       game.state = 'game-over'
       game.clear(0, 0)
-      expect(game.tiles[0].cleared()).toEqual(false)
+      expect(tile.clear).toHaveBeenCalledTimes(0)
     });
 
     test('will not flag tile when the game is over', () => {
       game.state = 'game-over'
       game.flag(0, 0)
-      expect(game.tiles[0].flagged()).toEqual(false)
+      expect(tile.flag).toHaveBeenCalledTimes(0)
     });
 
     test('flags the tile', () => {
-      const tile = new Tile
-      tile.flag = jest.fn()
-      game.tile = () => tile
-      game.flag(10, 12)
-      expect(tile.flag).toHaveBeenCalled();
+      game.flag(1, 1)
+      expect(tile.flag).toHaveBeenCalled()
     })
 
     test('clears the tile', () => {
-      const tile = new Tile
-      tile.clear = jest.fn()
-      game.tile = () => tile
-      game.clear(10, 12)
-      expect(tile.clear).toHaveBeenCalled();
+      game.clear(1, 1)
+      expect(tile.clear).toHaveBeenCalled()
     })
   })
 })
