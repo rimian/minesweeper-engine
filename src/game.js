@@ -1,5 +1,6 @@
 const arrayChunk = require('array-chunk')
 const shuffle = require('shuffle-array')
+const moore = require('moore')
 const Tile = require('./tile')
 
 class Game {
@@ -24,7 +25,7 @@ class Game {
 
   tile(x, y) {
     const tiles = this.chunk(this.tiles)
-    return tiles[y][x]
+    return tiles[y] ? tiles[y][x] : undefined
   }
 
   board() {
@@ -56,15 +57,28 @@ class Game {
   }
 
   clear(x, y) {
-    if(this.state == 'game-over') {
+    const tile = this.tile(x, y)
+
+    if(!tile || this.state == 'game-over') {
       return this.state
     }
 
-    this.tile(x, y).clear()
+    tile.clear()
 
     if(this.tile(x, y).detonated()) {
       return this.state = 'game-over'
     }
+
+    moore(1, 2).forEach((c) => {
+      const x1 = c[0] + x
+      const y1 = c[1] + y
+
+      const new_tile = this.tile(x1, y1)
+
+      if(new_tile && new_tile.state == 'default' && !new_tile.armed) {
+        return clear(x1, y1)
+      }
+    })
 
     return true;
   }

@@ -30,4 +30,6 @@ s = () => { return start() }
 c = (x, y) => { return clear(x, y) }
 f = (x, y) => { return flag(x, y) }
 
+start()
+
 /* eslint-enable no-undef */

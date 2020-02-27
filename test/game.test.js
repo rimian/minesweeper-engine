@@ -61,6 +61,13 @@ describe('Game', () => {
     expect(game.tile(9, 9)).toEqual(99)
   })
 
+  test('it does not get a tile out of bounds', () => {
+    game.start()
+    expect(game.tile(0, -1)).toBeUndefined()
+    expect(game.tile(-1, -1)).toBeUndefined()
+    expect(game.tile(-1, 0)).toBeUndefined()
+  })
+
   test('ends the game', () => {
     game.random = () => [0]
     game.start()
@@ -96,10 +103,10 @@ describe('Game', () => {
       game.flag(1, 1)
       expect(tile.flag).toHaveBeenCalled()
     })
-
-    test('clears the tile', () => {
-      game.clear(1, 1)
-      expect(tile.clear).toHaveBeenCalled()
-    })
+    //
+    // test('clears the tile', () => {
+    //   game.clear(1, 1)
+    //   expect(tile.clear).toHaveBeenCalled()
+    // })
   })
 })
