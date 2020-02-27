@@ -59,4 +59,10 @@ describe('Tile', () => {
     tile.flag();
     expect(tile.flagged()).toEqual(true)
   })
+
+  test('it has a danger value', () => {
+    expect(tile.danger).toEqual(0)
+    expect(tile.moreDanger())
+    expect(tile.danger).toEqual(1)
+  })
 })
