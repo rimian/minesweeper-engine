@@ -36,6 +36,15 @@ describe('neighborhood', () => {
     )
   })
 
+  test('neighbors of the top right', () => {
+    expect(neighborhood(5, 0, tiles)).toEqual(
+      [
+         4,
+        14, 15
+      ]
+    )
+  })
+
   test('neighbors of the bottom left', () => {
     expect(neighborhood(0, 3, tiles)).toEqual(
       [
