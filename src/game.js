@@ -45,6 +45,16 @@ class Game {
       this.tiles[i].arm()
     })
 
+    this.tiles.forEach((tile) => {
+      moore(1, 2).forEach((xy) => {
+        const neighbor = this.tile(xy[0] + tile.x, xy[1], tile.y)
+
+        if(neighbor && neighbor.armed) {
+          tile.moreDanger()
+        }
+      });
+    });
+
     return this.state = 'running'
   }
 

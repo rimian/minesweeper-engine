@@ -9,6 +9,7 @@ describe('Tile', () => {
 
   test('default state', () => {
     expect(tile.state).toEqual('default')
+    expect(tile.armed).toEqual(false)
     expect(tile.x).toEqual(3)
     expect(tile.y).toEqual(5)
   })
