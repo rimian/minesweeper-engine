@@ -4,11 +4,13 @@ let tile
 
 describe('Tile', () => {
   beforeEach(() => {
-    tile = new Tile()
+    tile = new Tile(3, 5)
   })
 
   test('default state', () => {
     expect(tile.state).toEqual('default')
+    expect(tile.x).toEqual(3)
+    expect(tile.y).toEqual(5)
   })
 
   test('default -> cleared', () => {

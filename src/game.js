@@ -35,8 +35,10 @@ class Game {
   start () {
     this.tiles = []
 
-    for(let i = this.area; i--;){
-      this.tiles.push(new Tile)
+    for(let y = 0; y < this.settings.rows; y++) {
+      for(let x = 0; x < this.settings.cols; x++) {
+        this.tiles.push(new Tile(x, y))
+      }
     }
 
     this.random().forEach((i) => {

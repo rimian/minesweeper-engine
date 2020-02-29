@@ -7,9 +7,13 @@ const Tile = StateMachine.factory({
     { name: 'flag', from: 'default', to: 'flagged' },
     { name: 'unflag', from: 'flagged', to: 'default' }
   ],
-  data: {
-    armed: false,
-    danger: 0
+  data(x, y) {
+    return {
+      x: x,
+      y: y,
+      armed: false,
+      danger: 0,
+    }
   },
   methods: {
     arm() { this.armed = true },
