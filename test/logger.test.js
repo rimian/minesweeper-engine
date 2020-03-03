@@ -22,10 +22,8 @@ describe('Logger', () => {
     expect(logger.value({ state: 'foo' })).toEqual('bar')
   })
 
-  test('get all the values and leaves the original', () => {
-    game.board = () => [[{ state: 'default' }], [{ state: 'flagged' }]]
-    const values = logger.values()
-    expect(values.join('')).toEqual('#|')
-    expect(game.board()).toEqual([[{ state: 'default' }], [{ state: 'flagged' }]])
+  test('value', () => {
+    expect(logger.value({ state: 'default', danger: 3 })).toEqual('#')
+    expect(logger.value({ state: 'cleared', danger: 3 })).toEqual('3')
   })
 });

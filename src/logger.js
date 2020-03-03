@@ -12,7 +12,12 @@ class Logger {
   }
 
   value(tile) {
-    return this.settings[tile.state]
+    if(tile.state == 'cleared' && tile.danger > 0) {
+      return tile.danger.toString()
+    }
+    else {
+      return this.settings[tile.state]
+    }
   }
 
   values() {
