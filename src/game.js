@@ -4,11 +4,11 @@ const moore = require('moore')
 const Tile = require('./tile')
 
 class Game {
-  constructor () {
+  constructor (options = {}) {
     this.settings = {
-      rows: 10,
-      cols: 10,
-      mines: 10
+      rows: options.rows || 10,
+      cols: options.cols || 10,
+      mines: options.mines || 10
     }
     this.area = this.settings.rows * this.settings.cols
     this.tiles = []

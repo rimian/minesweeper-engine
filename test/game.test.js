@@ -16,6 +16,11 @@ describe('Game', () => {
     expect(game.settings.rows).toEqual(10)
     expect(game.settings.cols).toEqual(10)
     expect(game.settings.mines).toEqual(10)
+
+    game = new Game({ rows: 2, cols: 3, mines: 1 })
+    expect(game.settings.rows).toEqual(2)
+    expect(game.settings.cols).toEqual(3)
+    expect(game.settings.mines).toEqual(1)
   })
 
   test('it has an empty tile list', () => {
@@ -103,10 +108,5 @@ describe('Game', () => {
       game.flag(1, 1)
       expect(tile.flag).toHaveBeenCalled()
     })
-    //
-    // test('clears the tile', () => {
-    //   game.clear(1, 1)
-    //   expect(tile.clear).toHaveBeenCalled()
-    // })
   })
 })
