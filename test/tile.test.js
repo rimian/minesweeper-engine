@@ -65,7 +65,7 @@ describe('Tile', () => {
 
   test('it has a danger value', () => {
     expect(tile.danger).toEqual(0)
-    expect(tile.moreDanger())
+    tile.moreDanger()
     expect(tile.danger).toEqual(1)
   })
 })

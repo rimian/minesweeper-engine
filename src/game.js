@@ -88,7 +88,7 @@ class Game {
       const new_tile = this.tile(x1, y1)
 
       if(new_tile && new_tile.state == 'default' && !new_tile.armed) {
-        return clear(x1, y1)
+        return this.clear(x1, y1)
       }
     })
 

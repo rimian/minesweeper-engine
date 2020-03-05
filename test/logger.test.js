@@ -22,7 +22,7 @@ describe('Logger', () => {
     expect(logger.value({ state: 'foo' })).toEqual('bar')
   })
 
-  test('value', () => {
+  test('value when dangerous', () => {
     expect(logger.value({ state: 'default', danger: 3 })).toEqual('#')
     expect(logger.value({ state: 'cleared', danger: 3 })).toEqual('3')
   })
