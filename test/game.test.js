@@ -80,6 +80,18 @@ describe('Game', () => {
     expect(game.state).toEqual('game-over')
   })
 
+  describe('starting the game', () => {
+    test('it arms and adds danger', () => {
+      game = new Game({ rows: 2, col: 10, mines: 1 })
+      game.random = () => [0]
+      game.start()
+      expect(game.tiles[0].armed).toEqual(true)
+      expect(game.tiles[1].danger).toEqual(1)
+      expect(game.tiles[2].danger).toEqual(0)
+      expect(game.tiles[3].danger).toEqual(0)
+    });
+  });
+
   describe('playing the game', () => {
     beforeEach(() => {
       // hide armed tiles
