@@ -14,6 +14,20 @@ class Game {
     this.tiles = []
   }
 
+  createTiles() {
+    for(let y = 0; y < this.settings.rows; y++) {
+      for(let x = 0; x < this.settings.cols; x++) {
+        this.tiles.push(new Tile(x, y))
+      }
+    }
+  }
+
+  armTiles() {
+    this.random().forEach((i) => {
+      this.tiles[i].arm()
+    })
+  }
+
   chunk(arr) {
     return arrayChunk(arr, this.settings.cols)
   }
@@ -34,16 +48,8 @@ class Game {
 
   start () {
     this.tiles = []
-
-    for(let y = 0; y < this.settings.rows; y++) {
-      for(let x = 0; x < this.settings.cols; x++) {
-        this.tiles.push(new Tile(x, y))
-      }
-    }
-
-    this.random().forEach((i) => {
-      this.tiles[i].arm()
-    })
+    this.createTiles()
+    this.armTiles()
 
     this.tiles.forEach((tile) => {
       moore(1, 2).forEach((xy) => {

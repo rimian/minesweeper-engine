@@ -81,14 +81,19 @@ describe('Game', () => {
   })
 
   describe('starting the game', () => {
-    test('it arms and adds danger', () => {
-      game = new Game({ rows: 2, col: 10, mines: 1 })
+    xtest('it arms and adds danger', () => {
+      game = new Game({ rows: 2, col: 4, mines: 1 })
       game.random = () => [0]
       game.start()
       expect(game.tiles[0].armed).toEqual(true)
       expect(game.tiles[1].danger).toEqual(1)
       expect(game.tiles[2].danger).toEqual(0)
       expect(game.tiles[3].danger).toEqual(0)
+
+      expect(game.tiles[4].danger).toEqual(1)
+      expect(game.tiles[5].danger).toEqual(1)
+      expect(game.tiles[6].danger).toEqual(0)
+      expect(game.tiles[7].danger).toEqual(0)
     });
   });
 
