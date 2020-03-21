@@ -81,8 +81,8 @@ describe('Game', () => {
   })
 
   describe('starting the game', () => {
-    xtest('it arms and adds danger', () => {
-      game = new Game({ rows: 2, col: 4, mines: 1 })
+    test('it arms and adds danger', () => {
+      game = new Game({ rows: 2, cols: 4, mines: 1 })
       game.random = () => [0]
       game.start()
       expect(game.tiles[0].armed).toEqual(true)

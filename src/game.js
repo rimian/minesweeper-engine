@@ -14,10 +14,35 @@ class Game {
     this.tiles = []
   }
 
+  start () {
+    this.tiles = []
+    this.createTiles()
+    this.armTiles()
+
+    this.tiles.forEach((tile) => {
+      moore(1, 2).forEach((xy) => {
+
+        const neighbor = this.tile(xy[0] + tile.x, xy[1] + tile.y)
+
+        if(neighbor == undefined) {
+          return
+        }
+
+        if(neighbor.armed) {
+          tile.moreDanger()
+        }
+      });
+    });
+
+    return this.state = 'running'
+  }
+
   createTiles() {
+    let i = 0
     for(let y = 0; y < this.settings.rows; y++) {
       for(let x = 0; x < this.settings.cols; x++) {
-        this.tiles.push(new Tile(x, y))
+        this.tiles.push(new Tile(i, { x: x, y: y }))
+        i++
       }
     }
   }
@@ -44,24 +69,6 @@ class Game {
 
   board() {
     return this.chunk(this.tiles)
-  }
-
-  start () {
-    this.tiles = []
-    this.createTiles()
-    this.armTiles()
-
-    this.tiles.forEach((tile) => {
-      moore(1, 2).forEach((xy) => {
-        const neighbor = this.tile(xy[0] + tile.x, xy[1], tile.y)
-
-        if(neighbor && neighbor.armed) {
-          tile.moreDanger()
-        }
-      });
-    });
-
-    return this.state = 'running'
   }
 
   flag(x, y) {

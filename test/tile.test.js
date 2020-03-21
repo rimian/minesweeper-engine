@@ -5,12 +5,13 @@ let tile
 describe('Tile', () => {
   describe('FSM', () => {
     beforeEach(() => {
-      tile = new Tile(3, 5)
+      tile = new Tile(4, { x: 3, y:5 })
     })
 
     test('default state', () => {
       expect(tile.state).toEqual('default')
       expect(tile.armed).toEqual(false)
+      expect(tile.id).toEqual(4)
       expect(tile.x).toEqual(3)
       expect(tile.y).toEqual(5)
     })
