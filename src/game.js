@@ -94,6 +94,10 @@ class Game {
       return this.state = 'game-over'
     }
 
+    if(tile.danger > 0) {
+      return
+    }
+
     moore(1, 2).forEach((c) => {
       const x1 = c[0] + x
       const y1 = c[1] + y
